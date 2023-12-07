@@ -1,20 +1,18 @@
-import { useState } from 'react'
-import './App.css'
-import { Home } from './home/Home'
+import './App.scss'
+import { Route, Routes } from "react-router-dom";
+import Header from './components/Header'
+import Home from './pages/Home.jsx';
+import About from './pages/About.jsx';
 
 function App() {
-    const [count, setCount] = useState(0)
-
     return (
-        <div className='px-6'>
-            <Home />
-
-            <div className="card">
-                <button onClick={() => setCount((count) => count + 1)}>
-                    count is {count}
-                </button>
-            </div>
-        </div>
+        <>
+            <Header />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+            </Routes>
+        </>
     )
 }
 
